@@ -1,4 +1,9 @@
-fastapi
-uvicorn
-mysql-connector-python
-python-dotenv
+streamlit>=1.35.0
+requests>=2.31.0
+plotly>=5.18.0
+fastapi>=0.110.0
+uvicorn>=0.28.0
+mysql-connector-python>=8.0.0
+python-dotenv>=1.0.0
+sqlglot>=23.0.0
+google-genai>=2.0.0
