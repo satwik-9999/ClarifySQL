@@ -1,74 +1,45 @@
-\# ClarifySQL
+# ClarifySQL
 
+ClarifySQL turns natural language questions into schema-aware SQL queries and interactive results. It combines a Streamlit interface with a FastAPI backend, database schema discovery, clarification prompts, SQL validation, query history, and result visualizations.
 
+## Features
 
-AI-powered natural language data assistant that converts English questions into secure SQL queries and interactive insights.
+- Natural language to SQL with schema context
+- Clarification when a request is ambiguous
+- SQL validation before query execution
+- MySQL database integration
+- Query history and session-based context
+- Result analysis and visualizations
+- Demo mode
 
-
-
-\## 🚀 Features
-
-
-
-\- 🧠 Natural language to SQL
-
-\- 💬 Ambiguity detection and clarification
-
-\- 🗄️ Dynamic database schema awareness
-
-\- 🔐 SQL safety and validation
-
-\- 📊 Automatic result visualization
-
-\- 📜 Persistent query history
-
-\- 💬 Session-based conversation context
-
-\- ⚡ FastAPI backend
-
-\- 🎨 Streamlit interface
-
-\- 🎯 Demo Mode
-
-
-
-\## 🏗️ Architecture
-
-
+## Architecture
 
 ```text
+User → Streamlit UI → FastAPI → Query understanding → Clarification
+     → SQL generation and validation → MySQL → Results and visualization
+```
 
-User
+## Requirements
 
-&#x20; ↓
+- Python 3.10 or newer
+- MySQL
+- A Gemini API key
 
-Streamlit UI
+## Setup
 
-&#x20; ↓
+1. Create and activate a virtual environment.
+2. Install dependencies:
 
-FastAPI
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-&#x20; ↓
+3. Copy `.env.example` to `.env` and set `DB_HOST`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`, and `GEMINI_API_KEY`. Keep the populated `.env` file private.
+4. Start the API and interface in separate terminals:
 
-Query Understanding
+   ```bash
+   uvicorn main:app --reload
+   streamlit run app.py
+   ```
 
-&#x20; ↓
-
-Clarification Engine
-
-&#x20; ↓
-
-Gemini LLM
-
-&#x20; ↓
-
-SQL Validation
-
-&#x20; ↓
-
-MySQL
-
-&#x20; ↓
-
-Results + Visualization
-
+The API runs at `http://localhost:8000`. Interactive API documentation is available at `http://localhost:8000/docs`.
