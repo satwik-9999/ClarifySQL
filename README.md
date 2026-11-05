@@ -22,8 +22,8 @@ User → Streamlit UI → FastAPI → Query understanding → Clarification
 ## Requirements
 
 - Python 3.10 or newer
-- MySQL, unless using demo mode
-- A Gemini API key for LLM-powered SQL generation
+- MySQL
+- A Gemini API key
 
 ## Setup
 
@@ -34,12 +34,12 @@ User → Streamlit UI → FastAPI → Query understanding → Clarification
    pip install -r requirements.txt
    ```
 
-3. Configure database connection details and your Gemini API key using the environment variables expected by the application. Keep credentials out of source control.
-4. Start the API and UI in separate terminals:
+3. Copy `.env.example` to `.env` and set `DB_HOST`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`, and `GEMINI_API_KEY`. Keep the populated `.env` file private.
+4. Start the API and interface in separate terminals:
 
    ```bash
    uvicorn main:app --reload
    streamlit run app.py
    ```
 
-The API is available at `http://localhost:8000`; FastAPI's interactive docs are at `http://localhost:8000/docs`.
+The API runs at `http://localhost:8000`. Interactive API documentation is available at `http://localhost:8000/docs`.
